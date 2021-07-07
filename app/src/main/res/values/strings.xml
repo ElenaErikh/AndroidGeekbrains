@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">AndroidGeekbrains</string>
+    <string name="profileImage">Profile:</string>
+    <string name="notification">Mute notification</string>
+    <string name="block">Block</string>
+    <string name="user_name">User name</string>
+    <string name="textOff">Block</string>
+    <string name="textOn">Unblock</string>
+    <string name="gender1">Male</string>
+    <string name="gender2">Female</string>
+    <string name="username1">Elena Erikh</string>
+    <string name="phoneNumber1">89005551111</string>
+    <string name="phone_number">Phone number</string>
+    <string name="add_profile">Add profile:</string>
+    <string name="address">Address</string>
+    <string name="email">Email</string>
+    <string name="save">Save</string>
+    <string name="name">Name:</string>
+    <string name="phone_number_view">Phone number:</string>
+    <string name="email_view">Email:</string>
+    <string name="email1">Reikon@gmail.com</string>
 </resources>
