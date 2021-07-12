@@ -8,10 +8,12 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/OutputTextView"
+        android:id="@+id/outputTextView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:textSize="@dimen/textView_text"
+        android:gravity="bottom|end"
         android:text="@string/OutputTextView" />
 
     <LinearLayout
@@ -33,7 +35,7 @@
             android:textSize="@dimen/button_text" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/SumBtn"
+            android:id="@+id/sumBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
@@ -53,7 +55,7 @@
         android:orientation="horizontal">
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/DivBtn"
+            android:id="@+id/divBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -62,7 +64,7 @@
             android:textSize="@dimen/button_text" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/MultBtn"
+            android:id="@+id/multBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -201,7 +203,7 @@
         android:orientation="horizontal">
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/DotBtn"
+            android:id="@+id/dotBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -219,7 +221,7 @@
             android:textSize="@dimen/button_text" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/EqualBtn"
+            android:id="@+id/equalBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
