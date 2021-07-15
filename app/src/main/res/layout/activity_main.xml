@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/stars"
     android:orientation="vertical"
+    android:theme="@style/MyCoolStyle"
     tools:context=".MainActivity">
 
     <TextView
@@ -19,216 +20,180 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margins_between_btns"
-        android:layout_marginEnd="@dimen/margins_between_btns"
         android:orientation="horizontal">
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/clearBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="5dp"
-            android:layout_weight="2"
+            android:layout_weight="1"
             android:background="@drawable/custom_button"
             android:text="@string/clear_button"
-            android:textColor="#E91E63"
-            android:textSize="@dimen/button_text" />
+            android:textColor="#E9581E" />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/sumBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_weight="2"
+            android:layout_weight="1"
             android:background="@drawable/custom_button"
-            android:text="@string/SumBtn"
-            android:textSize="@dimen/button_text" />
+            android:text="@string/SumBtn" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margins_between_btns"
-        android:layout_marginTop="6dp"
-        android:layout_marginEnd="@dimen/margins_between_btns"
         android:orientation="horizontal">
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/divBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/custom_button"
-            android:text="@string/DivBtn"
-            android:textSize="@dimen/button_text" />
+            android:text="@string/DivBtn" />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/multBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/custom_button"
-            android:text="@string/MultBtn"
-            android:textSize="@dimen/button_text" />
+            android:text="@string/MultBtn" />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/subtractBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/custom_button"
-            android:text="@string/subtractBtn"
-            android:textSize="@dimen/button_text" />
+            android:text="@string/subtractBtn" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margins_between_btns"
-        android:layout_marginTop="6dp"
-        android:layout_marginEnd="@dimen/margins_between_btns"
         android:orientation="horizontal">
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/custom_button"
-            android:text="@string/button1"
-            android:textSize="@dimen/button_text" />
+            android:text="@string/button1" />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/custom_button"
-            android:text="@string/button2"
-            android:textSize="@dimen/button_text" />
+            android:text="@string/button2" />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/custom_button"
-            android:text="@string/button3"
-            android:textSize="@dimen/button_text" />
+            android:text="@string/button3" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margins_between_btns"
-        android:layout_marginTop="6dp"
-        android:layout_marginEnd="@dimen/margins_between_btns"
         android:orientation="horizontal">
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/custom_button"
-            android:text="@string/button4"
-            android:textSize="@dimen/button_text" />
+            android:text="@string/button4" />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/custom_button"
-            android:text="@string/button5"
-            android:textSize="@dimen/button_text" />
+            android:text="@string/button5" />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/custom_button"
-            android:text="@string/button6"
-            android:textSize="@dimen/button_text" />
+            android:text="@string/button6"/>
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margins_between_btns"
-        android:layout_marginTop="6dp"
-        android:layout_marginEnd="@dimen/margins_between_btns"
         android:orientation="horizontal">
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/custom_button"
-            android:text="@string/button7"
-            android:textSize="@dimen/button_text" />
+            android:text="@string/button7"/>
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/custom_button"
-            android:text="@string/button8"
-            android:textSize="@dimen/button_text" />
+            android:text="@string/button8" />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/custom_button"
-            android:text="@string/button9"
-            android:textSize="@dimen/button_text" />
+            android:text="@string/button9" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margins_between_btns"
-        android:layout_marginTop="6dp"
-        android:layout_marginEnd="@dimen/margins_between_btns"
         android:orientation="horizontal">
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/dotBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/custom_button"
-            android:text="@string/dotBtn"
-            android:textSize="@dimen/button_text" />
+            android:text="@string/dotBtn" />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button0"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/custom_button"
-            android:text="@string/button0"
-            android:textSize="@dimen/button_text" />
+            android:text="@string/button0" />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/equalBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/custom_button"
             android:text="@string/EqualBtn"
-            android:textColor="#3F51B5"
-            android:textSize="@dimen/button_text" />
+            android:textColor="#3F51B5" />
 
     </LinearLayout>
 

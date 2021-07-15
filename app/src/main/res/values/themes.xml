@@ -5,4 +5,15 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="MyCoolStyle" parent="Theme.AndroidGeekbrains">
+        <item name="android:textSize">@dimen/button_text</item>
+        <item name="android:textColor">#D2D2D5</item>
+        <item name="android:layout_marginStart">@dimen/margins_between_btns</item>
+        <item name="android:layout_marginEnd">@dimen/margins_between_btns</item>
+        <item name="android:layout_marginTop">@dimen/margin_top</item>
+        <item name="android:fontFamily">cursive</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>
