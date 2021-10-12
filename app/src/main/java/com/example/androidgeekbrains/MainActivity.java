@@ -3,114 +3,33 @@ package com.example.androidgeekbrains;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
-    private StringBuilder str;
-    private Symbols mathSymbol;
+    Calculator calc;
     private TextView outputTextView;
     public static final String DEFAULT_VALUE = "0";
     public static final String PARAM_TEXT_VIEW = "PARAM_TEXT_VIEW";
+
+    private final int[] numberBtnsID = new int[]{R.id.button0, R.id.button1, R.id.button2, R.id.button3, R.id.button4,
+            R.id.button5, R.id.button6, R.id.button7, R.id.button8, R.id.button9};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         outputTextView = findViewById(R.id.outputTextView);
-        str = new StringBuilder();
+        calc = new Calculator();
 
-        findViewById(R.id.clearBtn).setOnClickListener(v -> {
-            outputTextView.setText(DEFAULT_VALUE);
-            str = new StringBuilder();
-        });
-
-        findViewById(R.id.sumBtn).setOnClickListener(v -> {
-            mathSymbol = Symbols.sum;
-            outputTextView.setText(str.append(String.format(Locale.getDefault(), " %s ",
-                    (Symbols.sum).getSymbol())));
-        });
-
-        findViewById(R.id.divBtn).setOnClickListener(v -> {
-            mathSymbol = Symbols.div;
-            outputTextView.setText(str.append(String.format(Locale.getDefault(), " %s ",
-                    (Symbols.div).getSymbol())));
-        });
-
-        findViewById(R.id.multBtn).setOnClickListener(v -> {
-            mathSymbol = Symbols.mul;
-            outputTextView.setText(str.append(String.format(Locale.getDefault(), " %s ",
-                    (Symbols.mul).getSymbol())));
-        });
-
-        findViewById(R.id.subtractBtn).setOnClickListener(v -> {
-            mathSymbol = Symbols.sub;
-            outputTextView.setText(str.append(String.format(Locale.getDefault(), " %s ",
-                    (Symbols.sub).getSymbol())));
-        });
-
-        findViewById(R.id.button1).setOnClickListener(v -> outputTextView.setText(str.append("1")));
-
-        findViewById(R.id.button2).setOnClickListener(v -> outputTextView.setText(str.append("2")));
-
-        findViewById(R.id.button3).setOnClickListener(v -> outputTextView.setText(str.append("3")));
-
-        findViewById(R.id.button4).setOnClickListener(v -> outputTextView.setText(str.append("4")));
-
-        findViewById(R.id.button5).setOnClickListener(v -> outputTextView.setText(str.append("5")));
-
-        findViewById(R.id.button6).setOnClickListener(v -> outputTextView.setText(str.append("6")));
-
-        findViewById(R.id.button7).setOnClickListener(v -> outputTextView.setText(str.append("7")));
-
-        findViewById(R.id.button8).setOnClickListener(v -> outputTextView.setText(str.append("8")));
-
-        findViewById(R.id.button9).setOnClickListener(v -> outputTextView.setText(str.append("9")));
-
-        findViewById(R.id.button0).setOnClickListener(v -> outputTextView.setText(str.append("0")));
-
-        findViewById(R.id.equalBtn).setOnClickListener(v -> {
-            if (str == null) {
-                log("String is null");
-            } else {
-                String[] parts = str.toString().split("\\s");
-                if (parts.length != 3) {
-                    log("Invalid data");
-                    return;
-                }
-
-                int val1 = Integer.parseInt(parts[0]);
-                int val2 = Integer.parseInt(parts[2]);
-
-                switch (mathSymbol) {
-                    case sum:
-                        updateText(String.valueOf(val1 + val2));
-                        break;
-                    case sub:
-                        updateText(String.valueOf(val1 - val2));
-                        break;
-                    case mul:
-                        updateText(String.valueOf(val1 * val2));
-                        break;
-                    case div:
-                        try {
-                            if (val2 != 0) {
-                                updateText(String.valueOf(val1 / val2));
-                                break;
-                            }
-                        } catch (ArithmeticException e) {
-                            updateText(DEFAULT_VALUE);
-                            e.printStackTrace();
-                        }
-                    default:
-                        str = new StringBuilder();
-                }
-            }
-        });
+        setBtnListeners();
 
         String instanceState;
         if (savedInstanceState == null) {
@@ -121,9 +40,43 @@ public class MainActivity extends AppCompatActivity {
         log(instanceState + " - onCreate()");
     }
 
+    private void setBtnListeners(){
+
+        for (int i = 0; i < numberBtnsID.length; i++) {
+            findViewById(numberBtnsID[i]).setOnClickListener(v -> {
+                Button btn = (Button)v;
+                outputTextView.setText(calc.setTextStr(btn.getText().toString()));
+            });
+        }
+
+        findViewById(R.id.clearBtn).setOnClickListener(v -> {
+            outputTextView.setText(DEFAULT_VALUE);
+            calc = new Calculator();
+        });
+
+        findViewById(R.id.sumBtn).setOnClickListener(v -> {
+            outputTextView.setText(calc.setSymbol(Symbols.sum));
+        });
+
+        findViewById(R.id.divBtn).setOnClickListener(v -> {
+            outputTextView.setText(calc.setSymbol(Symbols.div));
+        });
+
+        findViewById(R.id.multBtn).setOnClickListener(v -> {
+            outputTextView.setText(calc.setSymbol(Symbols.mul));
+        });
+
+        findViewById(R.id.subtractBtn).setOnClickListener(v -> {
+            outputTextView.setText(calc.setSymbol(Symbols.sub));
+        });
+
+        findViewById(R.id.equalBtn).setOnClickListener(v -> {
+            outputTextView.setText(calc.getResult());
+        });
+    }
+
     private void updateText(String str){
-        this.str = new StringBuilder(str);
-        outputTextView.setText(this.str);
+        outputTextView.setText(calc.getStr());
     }
 
     @Override
@@ -135,9 +88,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onRestoreInstanceState(Bundle saveInstanceState) {
         super.onRestoreInstanceState(saveInstanceState);
-        str.append(saveInstanceState.getString(PARAM_TEXT_VIEW, DEFAULT_VALUE));
-        outputTextView.setText(str);
-        log("Повторный eState() **************** " + mathSymbol);
+        outputTextView.setText(calc.setTextStr(saveInstanceState.getString(PARAM_TEXT_VIEW, DEFAULT_VALUE)));
+        log("Повторный eState()");
     }
 
     @Override
@@ -155,8 +107,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putString(PARAM_TEXT_VIEW, str.toString());
-        log("saveInstanceState()  ****************" + str.toString());
+        outState.putString(PARAM_TEXT_VIEW, calc.getStr().toString());
+        log("saveInstanceState()");
     }
 
     @Override
