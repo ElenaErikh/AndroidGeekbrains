@@ -1,12 +1,14 @@
 package com.example.androidgeekbrains;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
 
 import java.util.Locale;
 
-public class Calculator {
+public class Calculator implements Parcelable {
 
     private StringBuilder str;
     private Symbols mathSymbol;
@@ -15,6 +17,22 @@ public class Calculator {
     public Calculator() {
         str = new StringBuilder();
     }
+
+    protected Calculator(Parcel in) {
+        str.append(in.readString());
+    }
+
+    public static final Creator<Calculator> CREATOR = new Creator<Calculator>() {
+        @Override
+        public Calculator createFromParcel(Parcel in) {
+            return new Calculator(in);
+        }
+
+        @Override
+        public Calculator[] newArray(int size) {
+            return new Calculator[size];
+        }
+    };
 
     public StringBuilder getStr() {
         return str;
@@ -77,4 +95,14 @@ public class Calculator {
         Log.d("CALCULATOR", text);
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(str.toString());
+
+    }
 }
