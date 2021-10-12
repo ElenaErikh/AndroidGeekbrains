@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="button_text">45sp</dimen>
-    <dimen name="margins_between_btns">10sp</dimen>
+    <dimen name="button_text_land">28sp</dimen>
+    <dimen name="margins_between_btns">10dp</dimen>
+    <dimen name="textView_text">70sp</dimen>
+
 </resources>
