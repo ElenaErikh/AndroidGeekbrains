@@ -15,8 +15,12 @@
     <string name="MultBtn">*</string>
     <string name="subtractBtn">-</string>
     <string name="SumBtn">+</string>
-    <string name="OutputTextView" />
+    <string name="OutputTextView">0</string>
     <string name="dotBtn">.</string>
     <string name="EqualBtn">=</string>
+    <string name="headTextView">Choose a theme:</string>
+    <string name="radioBtn1">Cool dark style</string>
+    <string name="radioBtn2">Light style</string>
+    <string name="backBtn">Back</string>
 
 </resources>
